@@ -1,13 +1,78 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>alex-cruz</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alex Cruz</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Main Layout Wrapper -->
+  <div class="main-layout">
+
+    <!-- Left Panel -->
+    <aside class="left-panel">
+      <header>
+        <h1>ALEX CRUZ</h1>
+
+        <nav>
+          <ul>
+            <li class="active"><a href="#photo">Photos</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+    </aside>
+
+    <!-- Right Panel -->
+    <main class="right-panel">
+        <div class="social">
+            <a href="https://www.instagram.com/alexcruzphoto/" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               aria-label="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+
+            <a href="https://www.thread.com/in/alex-cruz-1b9b8b1b3/" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               aria-label="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+          </div>
+      <!-- Photo Section -->
+      <section id="photo">
+        <div class="container">
+          <img src="one.jpg" alt="Snowy Mountain 1" class="photo1">
+        </div>
+      </section>
+
+      <!-- Future Sections (Ready for Expansion) -->
+      <section id="about"></section>
+      <section id="contact"></section>
+
+    </main>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script type="module" src="/src/main.js"></script>
+
+</body>
 </html>
