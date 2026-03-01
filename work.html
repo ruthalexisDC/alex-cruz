@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALEX CRUZ - Work</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    screens: {
+                        'xs': '475px',
+                        'tablet': '768px',
+                        'ipad': '1024px',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#0B1D3A] text-white min-h-screen w-full relative selection:bg-white selection:text-[#2C3E50]">
+
+    <!-- ============================================
+         HTML STRUCTURE
+         ============================================ -->
+
+    <!-- Custom Cursor Elements -->
+    <div class="cursor-dot hidden md:block"></div>
+    <div class="cursor-outline hidden md:block"></div>
+
+    <!-- Navigation - White Text -->
+    <nav class="fixed top-0 left-0 w-full p-8 flex justify-between items-center z-50 text-white bg-[#0B1D3A]/90 backdrop-blur-sm">
+        <!-- Logo -->
+        <div class="text-xl font-bold tracking-widest uppercase font-['Montserrat'] hover:opacity-70 transition-opacity cursor-pointer" data-hover>
+           Alex Cruz
+        </div>
+
+        <!--Mobile Menu Button-->
+        <button id="mobile-menu-btn" class="md:hidden flex flex-col space-y-1.5 p-2" aria-label="Toggle menu">
+            <span class="w-6 h-0.5 bg-white"></span>
+            <span class="w-6 h-0.5 bg-white"></span>
+            <span class="w-6 h-0.5 bg-white"></span>
+        </button>
+        
+        <!-- Navigation Links -->
+        <div id="nav-link" class="hidden md:flex flex-col md:flex-row absolute md:relative top-full left-0 w-full md:w-auto bg-[#0B1D3A]/95 md:bg-transparent p-6 md:p-0 space-y-4 md:space-y-0 md:space-x-8 lg:space-x-12 text-sm font-semibold tracking-[0.2em] uppercase backdrop-blur-md md:backdrop-blur-none border-t md:border-t-0 border-white/10">
+
+            <!-- Home (Normal) -->
+            <a href="index.html"
+               class="relative py-2 text-white/60 hover:text-white transition-colors duration-300
+                      after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-full after:bg-white
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300
+                      hover:after:scale-x-100">
+                Home
+            </a>
+
+            <!-- Work (Active) -->
+            <a href="work.html"
+               class="relative py-2 text-white
+                      after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-full after:bg-white">
+                Work
+            </a>
+
+            <!-- About -->
+            <a href="about.html"
+               class="relative py-2 text-white/60 hover:text-white transition-colors duration-300
+                      after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-full after:bg-white
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300
+                      hover:after:scale-x-100">
+                About
+            </a>
+
+            <!-- Contact -->
+            <a href="contact.html"
+               class="relative py-2 text-white/60 hover:text-white transition-colors duration-300
+                      after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-full after:bg-white
+                      after:scale-x-0 after:origin-left after:transition-transform after:duration-300
+                      hover:after:scale-x-100">
+                Contact
+            </a>
+
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex space-x-6 text-white">
+            <a href="#" class="hover:scale-110 transition-transform" data-hover>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+            </a>
+            <a href="https://www.pinterest.com" class="hover:scale-110 transition-transform" data-hover>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0C5.373 0 0 5.373 0 12c0 4.418 2.865 8.166 6.885 9.504-.095-.807-.181-2.047.038-2.93.197-.82 1.27-5.222 1.27-5.222s-.323-.646-.323-1.6c0-1.498.87-2.62 1.952-2.62.92 0 1.364.69 1.364 1.518 0 .925-.59 2.308-.894 3.592-.254 1.07.538 1.942 1.594 1.942 1.912 0 3.385-2.016 3.385-4.924 0-2.573-1.85-4.373-4.49-4.373-3.058 0-4.86 2.293-4.86 4.66 0 .924.356 1.917.8 2.456a.323.323 0 0 1 .074.308c-.082.34-.27 1.07-.306 1.217-.048.197-.157.24-.364.145-1.35-.63-2.193-2.6-2.193-4.182 0-3.41 2.48-6.54 7.16-6.54 3.754 0 6.67 2.675 6.67 6.24 0 3.726-2.35 6.72-5.61 6.72-1.096 0-2.126-.57-2.478-1.24l-.674 2.57c-.244.94-.91 2.12-1.354 2.84A12.01 12.01 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
+                </svg>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-16 px-8 w-full">
+        <div class="max-w-7xl mx-auto">
+            <!-- Page Title -->
+            <div class="mb-12 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tighter mb-4">Work</h1>
+                <p class="text-sm md:text-base font-light tracking-widest uppercase opacity-80">
+                    FreeStyle Photography Collection
+                </p>
+            </div>
+            
+            <!-- Image Grid -->
+            <section id="gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Images will be generated by JavaScript -->
+            </section>
+        </div>
+    </main>
+
+    <!--Enhanced Lightbox Overlay-->
+    <div id="lightbox" class="lightbox fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col hidden">
+
+        <!--Top Bar-->
+        <div class="flex justify-between items-center p-4 md:p-6 bg-gradient-to-b from-black/50 to-transparent absolute top-0 left-0 right-0 z-50">
+            <div class="flex items-center space-x-4">
+                <span id="lightbox-counter" class="text-sm font-mono tracking-widest opacity-70">01 / 09</span>
+            </div>
+            <div class="flex items-center space-x-2 md:space-x-4">
+                <!--Zoom Button (Desktop)-->
+                <button onclick="toggleZoom()" class="hidden lg:block p-2 text-white/70 hover:text-white transition-colors" aria-label="zoom" title="Zoom (z)">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                    </svg>
+                </button>
+                <!--Close Button-->
+                <button onclick="closeLightbox()" class="p-2 text-white/70 hover:text-white transition-colors" aria-label="close" title="Close (Esc)">
+                     <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!--Main Image Area-->
+        <div class="flex-1 flex items-center justify-center relative p-4 md:p-12 lg:p-16">
+            <button onclick="changeImage(-1)" class="nav-arrow absolute left-4 md:left-8 lg:left-12 z-40 p-3 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-all hidden md:block" aria-label="Previous" title="Previous (←)">
+                <svg class="w-8 h-8 lg:w-10 lg:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </button>
+            
+            <!--Image Container-->
+            <div id="image-container" class="relative max-w-full max-h-full flex items-center justify-center overflow-hidden">
+                <div id="spinner" class="spinner absolute"></div>
+                <img id="lightbox-image" src="" alt="" class="lightbox-img max-w-full max-h-[70vh] lg:max-h-[85vh] object-contain cursor-zoom-in" onclick="toggleZoom()">
+            </div>
+
+            <!--Next Button-->
+            <button onclick="changeImage(1)" class="nav-arrow next absolute right-4 md:right-8 lg:right-12 z-40 p-3 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-all hidden md:block" aria-label="Next" title="Next (→)">
+                <svg class="w-8 h-8 lg:w-10 lg:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+        
+        <!--Bottom Info Bar-->
+        <div class="lightbox-info p-4 md:p-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent absolute bottom-0 left-0 right-0">
+            <div class="max-w-4xl mx-auto text-center">
+                <h3 id="lightbox-title" class="text-xl md:text-2xl lg:text-3xl font-serif italic mb-2"></h3>
+                <p id="lightbox-caption" class="text-sm md:text-base font-light opacity-70"></p>
+
+                <!--Keyboard Shortcuts Hint (Desktop)-->
+                <div class="hidden lg:flex justify-center items-center space-x-6 mt-4 text-xs opacity-40">
+                   <span class="flex items-center space-x-1"><kbd class="px-2 py-1 bg-white/20 rounded">←</kbd><span>Prev</span></span>
+                    <span class="flex items-center space-x-1"><kbd class="px-2 py-1 bg-white/20 rounded">→</kbd><span>Next</span></span>
+                    <span class="flex items-center space-x-1"><kbd class="px-2 py-1 bg-white/20 rounded">Z</kbd><span>Zoom</span></span>
+                    <span class="flex items-center space-x-1"><kbd class="px-2 py-1 bg-white/20 rounded">Esc</kbd><span>Close</span></span>
+                </div>
+            </div>
+        </div>
+        
+        <!--Mobile Navigation-->
+        <div class="md:hidden absolute bottom-24 left-1/2 transform -translate-x-1/2 flex space-x-6 z-40">
+            <button onclick="changeImage(-1)" class="p-3 bg-white/10 backdrop-blur-md rounded-full" aria-label="Previous">
+                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </button>
+            <button onclick="changeImage(1)" class="p-3 bg-white/10 backdrop-blur-md rounded-full" aria-label="Next">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+        
+        <!--Thumbnail Strip (Desktop)-->
+        <div class="hidden lg:block absolute bottom-24 left-1/2 transform -translate-x-1/2 w-full max-w-4xl px-8">
+            <div id="thumbnail-strip" class="thumbnail-strip flex space-x-2 overflow-x-auto pb-2 justify-center"></div>
+        </div>
+        
+        <!-- Click outside to close -->
+        <div onclick="closeLightbox()" class="absolute inset-0 -z-10"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="flex flex-col md:flex-row justify-between items-center px-8 py-8 text-gray-500 text-xs bg-[#0B1D3A] border-t border-white/10">
+        <!-- Social Icons -->
+        <div class="flex space-x-4 mb-4 md:mb-0">
+            <a href="#" class="hover:scale-110 transition-transform" data-hover>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
+                </svg>
+            </a>
+            <a href="https://www.pinterest.com" class="hover:scale-110 transition-transform" data-hover>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0C5.373 0 0 5.373 0 12c0 4.418 2.865 8.166 6.885 9.504-.095-.807-.181-2.047.038-2.93.197-.82 1.27-5.222 1.27-5.222s-.323-.646-.323-1.6c0-1.498.87-2.62 1.952-2.62.92 0 1.364.69 1.364 1.518 0 .925-.59 2.308-.894 3.592-.254 1.07.538 1.942 1.594 1.942 1.912 0 3.385-2.016 3.385-4.924 0-2.573-1.85-4.373-4.49-4.373-3.058 0-4.86 2.293-4.86 4.66 0 .924.356 1.917.8 2.456a.323.323 0 0 1 .074.308c-.082.34-.27 1.07-.306 1.217-.048.197-.157.24-.364.145-1.35-.63-2.193-2.6-2.193-4.182 0-3.41 2.48-6.54 7.16-6.54 3.754 0 6.67 2.675 6.67 6.24 0 3.726-2.35 6.72-5.61 6.72-1.096 0-2.126-.57-2.478-1.24l-.674 2.57c-.244.94-.91 2.12-1.354 2.84A12.01 12.01 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
+                </svg>
+            </a>
+            <p>FreeStyle Photography</p>
+        </div>
+
+        <!-- Copyright -->
+        <div>
+            <p>&copy; 2026 Alex Cruz. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="src/main.js"></script>
+</body>
+</html>
