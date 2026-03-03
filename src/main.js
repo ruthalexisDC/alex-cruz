@@ -278,3 +278,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+ // MOBILE MENU
+    // ============================================
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const body = document.body;
+    
+    let isOpen = false;
+    
+    function toggleMenu() {
+        isOpen = !isOpen;
+        
+        if (isOpen) {
+            mobileMenu.classList.remove('translate-x-full');
+            menuIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+            body.classList.add('menu-open');
+        } else {
+            mobileMenu.classList.add('translate-x-full');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            body.classList.remove('menu-open');
+        }
+    }
+    
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+    }
+    
+    if (mobileMenu) {
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+    }
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && isOpen) {
+            toggleMenu();
+        }
+    });
