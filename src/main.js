@@ -1,3 +1,16 @@
+const STORAGE_KEY = "alex_gallery_photos";
+
+function getStoredPhotos() {
+  const data = localStorage.getItem(STORAGE_KEY);
+  return data ? JSON.parse(data) : [];
+}
+
+function savePhotos(photos) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(photos));
+}
+
+
+
 // ============================================
 // SHARED JAVASCRIPT FOR ALL PAGES
 // ============================================
@@ -319,3 +332,139 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleMenu();
         }
     });
+
+  // Uploading images
+ const uploadInput = document.getElementById("photo-upload");
+const previewModal = document.getElementById("preview-modal");
+const previewContainer = document.getElementById("preview-container");
+
+let selectedFiles = [];
+
+// When user selects images
+uploadInput.addEventListener("change", function () {
+  selectedFiles = Array.from(this.files);
+  previewContainer.innerHTML = "";
+
+  selectedFiles.forEach((file, index) => {
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      const previewItem = document.createElement("div");
+      previewItem.className = "relative group";
+
+      previewItem.innerHTML = `
+        <img src="${e.target.result}" 
+             class="w-full h-40 object-cover rounded-lg">
+        <button onclick="removePreview(${index})"
+                class="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded hover:bg-red-600 transition">
+            Remove
+        </button>
+      `;
+
+      previewContainer.appendChild(previewItem);
+    };
+
+    reader.readAsDataURL(file);
+  });
+
+  previewModal.classList.remove("hidden");
+  previewModal.classList.add("flex");
+});
+
+// Remove preview image
+window.removePreview = function (index) {
+  selectedFiles.splice(index, 1);
+  uploadInput.dispatchEvent(new Event("change"));
+};
+
+// Close preview
+window.closePreview = function () {
+  previewModal.classList.add("hidden");
+  previewModal.classList.remove("flex");
+  uploadInput.value = "";
+  selectedFiles = [];
+};
+
+// Confirm add to gallery
+window.confirmAddPhotos = function () {
+  selectedFiles.forEach((file) => {
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      const item = document.createElement("div");
+      item.className = "group relative overflow-hidden rounded-lg";
+
+      item.innerHTML = `
+        <img src="${e.target.result}" 
+             class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+             
+        <button class="absolute top-3 right-3 bg-black/60 text-white text-xs px-3 py-1 rounded opacity-0 group-hover:opacity-100 hover:bg-red-600 transition">
+            Delete
+        </button>
+      `;
+
+      const deleteBtn = item.querySelector("button");
+      deleteBtn.addEventListener("click", () => {
+        item.remove();
+      });
+
+      gallery.appendChild(item);
+    };
+
+    reader.readAsDataURL(file);
+  });
+
+  closePreview();
+};
+
+//Render Gallery From Storage (On Page Load)
+const gallery = document.getElementById("gallery");
+
+let storedPhotos = getStoredPhotos();
+
+function renderGallery() {
+    gallery.innerHTML = "";
+
+    storedPhotos.forEach((photo, index) => {
+        const item = document.createElement("div");
+        item.className = "group relative overflow-hidden rounded-lg";
+
+        item.innerHTML = `
+      <img src="${photo}"
+           class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+
+      <button 
+          class="absolute top-3 right-3 bg-black/60 text-white text-xs px-3 py-1 rounded opacity-0 group-hover:opacity-100 hover:bg-red-600 transition">
+          Delete
+      </button>
+    `;
+    const deleteBtn = item.querySelector("button");
+
+    deleteBtn.addEventListener("click", () => {
+           storedPhotos.splice(index, 1);
+      savePhotos(storedPhotos);
+      renderGallery();
+    });
+    gallery.appendChild(item);
+    })
+}
+    renderGallery();
+
+    //confirm add function
+    window.confirmAddPhotos = function () {
+  selectedFiles.forEach((file) => {
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      storedPhotos.push(e.target.result);
+      savePhotos(storedPhotos);
+      renderGallery();
+    };
+
+    reader.readAsDataURL(file);
+  });
+
+  closePreview();
+};
+
+
